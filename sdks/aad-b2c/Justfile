@@ -1,5 +1,4 @@
-VENV := justfile_directory() + "/.venv"
-PYTHON := VENV + "/bin/python"
+PYTHON := justfile_directory() + "/.venv/bin/python"
 
 default:
   @just --list
@@ -10,16 +9,13 @@ build:
   {{PYTHON}} -m build
   rm -drf build
 
-# Publish `dist/*` to pypi
+# Publish `dist/*` to pypi, then delete
 publish:
   {{PYTHON}} -m twine upload dist/*
+  rm -drf dist
 
-# Create venv and install requirements
-init:
-  rm -drf {{VENV}} || :
-  python3.11 -m venv {{VENV}}
-  {{PYTHON}} -m pip install --upgrade pip
-  {{PYTHON}} -m pip install build twine pytest
+# Build and publish
+republish: build publish
 
 # Run pytest
 test:

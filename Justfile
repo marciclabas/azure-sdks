@@ -2,6 +2,7 @@ mod blob "sdks/blob-az/Justfile"
 mod cosmos "sdks/cosmosdb/Justfile"
 mod pubsub "sdks/pubsub-az/Justfile"
 mod queue "sdks/queue-az/Justfile"
+mod aad "sdks/aad-b2c/Justfile"
 
 VENV := ".venv"
 PYTHON := VENV + "/bin/python"

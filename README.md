@@ -3,3 +3,5 @@
 
 - [Blob Storage](sdks/blob-az)
 - [Cosmos DB NoSQL](sdks/cosmosdb)
+- [Web PubSub](sdks/pubsub-az/)
+- [Queue Storage](sdks/queue-az/)

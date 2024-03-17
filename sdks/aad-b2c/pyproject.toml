@@ -3,20 +3,24 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "aad-b2c"
-version = "0.1.0"
+name = "aad"
+version = "0.1.5"
 authors = [
     {name="Marcel Claramunt", email="marcel@moveread.com"}
 ]
-description = "package_description"
+description = "Async Python SDK for validating Azure AD B2C access tokens"
 dependencies = [
-    
+    "aiohttp", "pydantic", "pyjwt"
 ]
 requires-python = ">=3.10"
 readme = {file="README.md", content-type="text/markdown"}
 
-# [project.urls]
-# repo = "<GIT_REPO_URL>"
+[project.optional-dependencies]
+fastapi = ["fastapi"]
+
+[project.urls]
+home = "https://github.com/moveread/azure-sdks/tree/main/sdks/aad-b2c"
+repo = "https://github.com/moveread/azure-sdks"
 
 # [project.optional-dependencies]
 # test = [
