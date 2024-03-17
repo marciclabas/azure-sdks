@@ -1,4 +1,4 @@
-VENV := ".venv"
+VENV := justfile_directory() + "/.venv"
 PYTHON := VENV + "/bin/python"
 
 default:
