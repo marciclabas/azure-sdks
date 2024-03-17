@@ -1,4 +1,5 @@
 mod blob "sdks/blob-az/Justfile"
+mod cosmos "sdks/cosmosdb/Justfile"
 
 VENV := ".venv"
 PYTHON := VENV + "/bin/python"

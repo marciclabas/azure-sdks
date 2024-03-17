@@ -9,9 +9,13 @@ build:
   {{PYTHON}} -m build
   rm -drf build
 
-# Publish `dist/*` to pypi
+# Publish `dist/*` to pypi, then delete
 publish:
   {{PYTHON}} -m twine upload dist/*
+  rm -drf dist
+
+# Build and publish
+republish: build publish
 
 # Run pytest
 test:
