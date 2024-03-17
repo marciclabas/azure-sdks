@@ -3,6 +3,6 @@ build
 twine
 -e sdks/blob-az
 -e sdks/cosmosdb
--e sdks/pubsub-az
+-e sdks/pubsub-az[client]
 -e sdks/queue-az
 -e sdks/aad-b2c

@@ -4,16 +4,24 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pubsub-az"
-version = "0.1.0"
+version = "0.1.1"
 authors = [
     {name="Marcel Claramunt", email="marcel@moveread.com"}
 ]
-description = "package_description"
+description = "Python SDK for Azure Web PubSub"
 dependencies = [
-    
+    "azure-messaging-webpubsubservice", "aiohttp"
 ]
 requires-python = ">=3.10"
 readme = {file="README.md", content-type="text/markdown"}
+
+[project.optional-dependencies]
+client = [
+    "azure-messaging-webpubsubclient", "python-dotenv"
+]
+
+[project.scripts]
+pubsub-client = "pubsub_az.client:main"
 
 # [project.urls]
 # repo = "<GIT_REPO_URL>"
