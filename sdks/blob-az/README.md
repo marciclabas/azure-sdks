@@ -8,20 +8,16 @@ pip install blob-az
 
 ## Authorization
 
-Both required fields can be obtained from the Azure Portal, within the Storage account, "Access keys" tab:
-
-- `BLOB_CONN_STR` (Connection string in the portal)
-- `BLOB_KEY` (KEY in the portal): `<random base64 string>`
+The required connection string can be obtained from the Azure Portal, within the Storage account, "Access keys" tab
 
 ### Environment (.env)
 
-For convenience, you can set `os.environ["BLOB_CONN_STR"]` and `os.environ["BLOB_KEY"]`. If you do, you can skip specifying them on every call.
+For convenience, you can set `os.environ["BLOB_CONN_STR"]`. If you do, you can skip specifying it on every call.
 
 E.g., create a `.env` file:
 
 ```bash
 BLOB_CONN_STR="<BLOB_CONN_STR>"
-BLOB_KEY="<BLOB_KEY>"
 ```
 
 Then load it before importing

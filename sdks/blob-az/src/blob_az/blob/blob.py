@@ -3,7 +3,7 @@ from azure.storage.blob.aio import BlobServiceClient
 from azure.storage.blob import BlobType, BlobSasPermissions, generate_blob_sas
 from azure.core.exceptions import ResourceNotFoundError
 import haskellian.asynch as hka
-from .. import CONN_STR, KEY
+from .. import CONN_STR
 from ..container import create as container_create
 from ..util import with_client
 
@@ -60,7 +60,7 @@ async def delete(
         await cc.delete_blobs(*blobs, raise_on_any_failure=False)
 
 def sas(
-    container: str, blob: str, *, account_key: str = KEY,
+    container: str, blob: str, *,
     client: BlobServiceClient | None = None, conn_str: str | None = CONN_STR,
     expiry: datetime = datetime.now() + timedelta(days=1),
     permission = BlobSasPermissions(read=True)
@@ -68,18 +68,20 @@ def sas(
     assert conn_str is not None or client is not None, "Provide a connection string or a client"
     client = client or BlobServiceClient.from_connection_string(conn_str)
     bc = client.get_blob_client(container, blob)
+    account_key=client.credential.account_key
     return generate_blob_sas(
         bc.account_name, bc.container_name, bc.blob_name,
         account_key=account_key, expiry=expiry, permission=permission
     )
 
 def url(
-    container: str, blob: str, *, account_key: str = KEY,
+    container: str, blob: str, *,
     client: BlobServiceClient | None = None, conn_str: str | None = CONN_STR,
     expiry: datetime = datetime.now() + timedelta(days=1),
     permission = BlobSasPermissions(read=True)
 ) -> str:
     client = client or BlobServiceClient.from_connection_string(conn_str)
+    account_key=client.credential.account_key
     bc = client.get_blob_client(container, blob)
     token = sas(container, blob, account_key=account_key, client=client, expiry=expiry, permission=permission)
     return f"{bc.url}?{token}"

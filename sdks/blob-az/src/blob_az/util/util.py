@@ -12,7 +12,7 @@ def with_client(coro):
         *args, client: BlobServiceClient | None = None,
         conn_str: str | None = CONN_STR, **kwargs
     ):
-        kwargs = R.omit(["client", "url", "key"], kwargs)
+        kwargs = R.omit(["client", "url"], kwargs)
         if client is None:
             assert conn_str is not None, "Provide a connection string or a client"
             async with BlobServiceClient.from_connection_string(conn_str) as client:

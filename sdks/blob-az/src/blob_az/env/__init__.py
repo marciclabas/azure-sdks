@@ -1,1 +1,1 @@
-from .keys import CONN_STR, KEY
+from .keys import CONN_STR

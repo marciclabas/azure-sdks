@@ -1,3 +1,6 @@
+python-dotenv
+build
+twine
 -e sdks/blob-az
 -e sdks/cosmosdb
 -e sdks/pubsub-az

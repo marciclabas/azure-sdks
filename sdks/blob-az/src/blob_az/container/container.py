@@ -2,7 +2,7 @@ import asyncio
 from datetime import datetime, timedelta
 from azure.storage.blob.aio import BlobServiceClient
 from azure.storage.blob import ContainerSasPermissions, generate_container_sas
-from .. import CONN_STR, KEY
+from .. import CONN_STR
 from ..util import with_client
 from .. import list, blob
 
@@ -25,7 +25,7 @@ async def clear(container: str, *, client: BlobServiceClient, conn_str: str = CO
     ])
     
 def sas(
-    container: str, *, account_key: str = KEY, conn_str: str | None = CONN_STR,
+    container: str, *, conn_str: str | None = CONN_STR,
     client: BlobServiceClient | None = None,
     expiry: datetime = datetime.now() + timedelta(days=1),
     permission = ContainerSasPermissions(read=True)
@@ -33,6 +33,7 @@ def sas(
     """Token for access to the whole container. Usage: `authed_url = {blob_url}?{sas(container)}`"""
     assert conn_str is not None or client is not None, "Provide a connection string or a client"
     client = client or BlobServiceClient.from_connection_string(conn_str)
+    account_key=client.credential.account_key
     token = generate_container_sas(
       account_name=client.account_name, container_name=container,
       account_key=account_key, expiry=expiry, permission=permission
