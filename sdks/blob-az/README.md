@@ -47,7 +47,7 @@ bz.client() # just works!
 ### Functions
 
 ```python
-az_blob
+blob_az
     def client(...) -> BlobServiceClient
     list
         async def containers(...) -> list[dict]
