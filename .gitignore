@@ -1,0 +1,6 @@
+azure
+.env
+.venv
+.vscode
+*.pyc
+*.egg-info
