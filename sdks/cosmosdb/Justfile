@@ -14,6 +14,8 @@ publish:
   {{PYTHON}} -m twine upload dist/*
   rm -drf dist
 
+republish: build publish
+
 # Run pytest
 test:
   {{PYTHON}} -m pytest

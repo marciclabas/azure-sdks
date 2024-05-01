@@ -2,7 +2,7 @@ from typing import Annotated
 from pydantic import BaseModel
 from azure.cosmos.aio import CosmosClient
 import ramda as R
-import haskellian.asynch as hka
+import haskellian.asyn as hka
 from .. import KEY, ENDPOINT
 from ..util import with_client
 

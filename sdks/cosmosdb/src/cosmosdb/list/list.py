@@ -1,5 +1,5 @@
 from azure.cosmos.aio import CosmosClient
-import haskellian.asynch as hka
+import haskellian.asyn as hka
 from .. import KEY, ENDPOINT
 from ..util import with_client
 

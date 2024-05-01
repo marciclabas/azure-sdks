@@ -4,13 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cosmosdb"
-version = "0.1.10"
+version = "0.1.12"
 authors = [
     {name="Marcel Claramunt", email="marcel@moveread.com"}
 ]
 description = "Python SDK for Azure Cosmos DB NoSQL"
 dependencies = [
-    "azure-cosmos", "aiohttp", "haskellian", "pydantic"
+    "azure-cosmos", "aiohttp", "haskellian-asyn", "pydantic"
 ]
 requires-python = ">=3.10"
 readme = {file="README.md", content-type="text/markdown"}

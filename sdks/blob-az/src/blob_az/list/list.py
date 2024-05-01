@@ -1,5 +1,5 @@
 from azure.storage.blob.aio import BlobServiceClient
-import haskellian.asynch as hka
+import haskellian.asyn as hka
 from ..util import with_client
 
 @with_client

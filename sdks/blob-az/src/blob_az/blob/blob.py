@@ -2,7 +2,7 @@ from datetime import datetime, timedelta
 from azure.storage.blob.aio import BlobServiceClient
 from azure.storage.blob import BlobType, BlobSasPermissions, generate_blob_sas
 from azure.core.exceptions import ResourceNotFoundError
-import haskellian.asynch as hka
+import haskellian.asyn as hka
 from .. import CONN_STR
 from ..container import create as container_create
 from ..util import with_client
